@@ -100,6 +100,7 @@ router.post('/login', validateAuthAPI.validateLogInRequest, async (req, res, nex
                 // res.status(400).json({message:"JWT token sign error"});
                 throw onlineQuizError("JWT token sign error", 400)
             }
+            //nothing
             const replyFromRedis = await redisService.setValue(userId, token);
             if(replyFromRedis){
                 req.session.user = {
