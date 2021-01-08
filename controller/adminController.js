@@ -36,7 +36,7 @@ router.post(
   validateAuthAPI.adminAuth,
   validateAdminAPI.validateAddQuestionRequest,
   async (req, res, next) => {
-    const reqBody = req.session.addQuestionBodys;
+    const reqBody = res.locals.addQuestionBody;
     const topicObject = await systemQueryObject.getTopicByName(
       reqBody.topicName
     );

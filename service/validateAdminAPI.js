@@ -51,7 +51,7 @@ validateAdminAPI.validateAddQuestionRequest = (req, res, next) => {
   } else if (validateChecksObject.isNullOrUndefined(question.options)) {
     throw onlineQuizError("The title is empty/invalid", 400);
   }
-  req.session.addQuestionBody = {
+  res.locals.addQuestionBody = {
     topicName: topicName.toUpperCase(),
     question,
   };
